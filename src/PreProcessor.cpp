@@ -45,6 +45,7 @@ void preProcessor(const std::string caminhoArquivo) {
     std::vector<std::string> sectionText;
     std::vector<std::string> sectionData;
     std::vector<std::string> novoVetor;
+    std::string operandosNormalizado;
     bool texto = false;
     bool dados = false;
     bool ordenado = false; 
@@ -108,6 +109,23 @@ void preProcessor(const std::string caminhoArquivo) {
 
         else {
             novoVetor.insert(novoVetor.end(), vetorLinha[i]);
+        }
+    }
+
+    // Se COPY, junta os dois operandos separados por vírgula sem espaço
+    for (int i = 0; i < (int)novoVetor.size(); i++) {
+        if (novoVetor[i].find("COPY") == 0) {
+            std::string operandos = novoVetor[i].substr(5);
+            
+            for (int j = 0; j < (int)operandos.size(); ++j) {
+                char caracter = operandos[j];
+                
+                if (caracter != ' ') {
+                    operandosNormalizado = operandosNormalizado + caracter;
+                }
+            }
+            
+            novoVetor[i] = "COPY " + operandosNormalizado;
         }
     }
 
