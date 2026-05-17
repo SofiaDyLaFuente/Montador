@@ -18,9 +18,6 @@ std::string normalizarLinha(const std::string linha) {
         if (letra == '\t') {
             letra = ' ';
         }
-        if (letra == ';') {
-            break;
-        }
         if (letra == ' ') {
             if (!ultimoEspaco) {
                 resultado = resultado + ' ';
