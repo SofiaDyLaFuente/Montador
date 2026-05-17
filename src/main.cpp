@@ -36,15 +36,13 @@ int main(int argc, char* argv[]) {
         std::cout << "Redirecionando para o Pre-Processador...\n";
     }
     else if (extensao == ".pre") {
-        Assembler gerador; 
-        
-        std::string baseName = caminho.substr(0, caminho.find_last_of('.'));
-        gerador.generate(caminho, baseName + ".obj", baseName + ".pen");
-        
+        Assembler gerador;  
+        gerador.generate(caminho);
         std::cout << "Montagem finalizada com sucesso!\n";
     }
     else if (extensao == ".obj") {
-        // simulador(caminho);
+        Simulator sim;
+        sim.run(caminho);
         std::cout << "Redirecionando para o Simulador...\n";
     }
     else {

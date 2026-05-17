@@ -127,7 +127,12 @@ void printTablesToTerminal(const std::map<std::string, Symbol>& symbols, const s
 }
 
 // Função principal do Montador
-void Assembler::generate(const std::string& preFilename, const std::string& objFilename, const std::string& penFilename) {
+void Assembler::generate(const std::string& preFilename) {
+
+    std::string baseName = preFilename.substr(0, preFilename.find_last_not_of('.'));
+    std::string objFilename = baseName + ".obj";
+    std::string penFilename = baseName + ".pen";
+
     std::ifstream inputFile(preFilename);
     std::string line;
 

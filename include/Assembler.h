@@ -19,7 +19,7 @@ struct Instruction {
 class Assembler {
 public:
     Assembler();
-    void generate(const std::string& preFilename, const std::string& objFilename, const std::string& penFilename);
+    void generate(const std::string& preFilename);
 
 private:
     int locationCounter;
