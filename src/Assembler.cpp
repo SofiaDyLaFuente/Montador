@@ -146,7 +146,6 @@ void Assembler::generate(const std::string& preFilename, const std::string& objF
 
         std::vector<std::string> tokens = splitLine(line);
         if (tokens.empty()) continue;
-
         std::cout << "\n[LINHA]: " << line << "\n";
 
         int idx = 0;
@@ -159,7 +158,6 @@ void Assembler::generate(const std::string& preFilename, const std::string& objF
             if (symbolTable.find(label) == symbolTable.end()) {
                 // Se o rótulo é novo, define ele apontando para o LC atual
                 symbolTable[label] = {locationCounter, true, -1};
-
                 std::cout << "  -> [RÓTULO] '" << label << "' mapeado direto para o LC " << locationCounter << ".\n";
             }
             else if (!symbolTable[label].isDefined) {
@@ -236,7 +234,7 @@ void Assembler::generate(const std::string& preFilename, const std::string& objF
     }
     inputFile.close();
 
-    // Gravação do Arquivo Objeto (.obj) contendo apenas uma linha de números
+    // Gravação do Arquivo Objeto (.obj) 
     std::ofstream objFile(objFilename);
     for (size_t i = 0; i < machineCode.size(); ++i) {
         objFile << machineCode[i] << (i + 1 == machineCode.size() ? "" : " ");

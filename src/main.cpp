@@ -12,7 +12,7 @@ Alunos: João Vitor Pereira Vieira,
 #include "../include/Simulator.h"
 
 int main(int argc, char* argv[]) {
-    // 1. Evita crash (Segmentation Fault) se o usuário digitar só "./montador"
+    // Evita crash (Segmentation Fault) se o usuário digitar só "./montador"
     if (argc < 2) {
         std::cerr << "Erro: Arquivo não especificado. Use: ./montador nome_do_arquivo.ext\n";
         return 1;
