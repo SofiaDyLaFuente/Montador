@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
 
     // Roteamento
     if (extensao == ".asm") {
-
+        preProcessor(caminho);
         std::cout << "Redirecionando para o Pre-Processador...\n";
     }
     else if (extensao == ".pre") {
