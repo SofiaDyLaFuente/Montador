@@ -9,7 +9,7 @@ Repositório para a implementação do Trabalho 1 da disciplina de Software Bás
 Para compilar o projeto, utilize o seguinte comando no terminal (dentro da pasta raiz do projeto):
 
 ```bash
-g++ -std=c++11 -Iinclude src/PreProcessor.cpp src/Assembler.cpp src/Simulator.cpp src/main.cpp -o montador
+g++ src/*.cpp -o montador
 ```
 
 ## Execução do programa
