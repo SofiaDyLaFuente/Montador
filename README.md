@@ -1,6 +1,11 @@
 # Montador Assembler
 Repositório para a implementação do Trabalho 1 da disciplina de Software Básico. O projeto consiste na implementação, em C/C++, de um montador para a linguagem assembly fictícia apresentada em aula.
 
+## Alunos:
+- João Vitor Pereira Vieira - 211036114
+- Sofia Dy La Fuente Monteiro - 211055530
+
+
 ## Pré Requisitos:
 - Compilador g++ com suporte a C++11
 
