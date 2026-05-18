@@ -44,7 +44,7 @@ void Assembler::handleOperand(const std::string& operand) {
     // Se o operando for um literal (número direto), empacota no código objeto 
     // Ex: o argumento de um CONST ou cópia imediata
     if (isdigit(operand[0]) || (operand[0] == '-' && isdigit(operand[1]))) {
-        int num = std::stoi(operand);
+        int num = std::stoi(operand, nullptr, 0);
         machineCode.push_back(num);
         penCode.push_back(num);
         locationCounter++;
@@ -129,7 +129,7 @@ void printTablesToTerminal(const std::map<std::string, Symbol>& symbols, const s
 // Função principal do Montador
 void Assembler::generate(const std::string& preFilename) {
 
-    std::string baseName = preFilename.substr(0, preFilename.find_last_not_of('.'));
+    std::string baseName = preFilename.substr(0, preFilename.find_last_of('.'));
     std::string objFilename = baseName + ".obj";
     std::string penFilename = baseName + ".pen";
 
@@ -216,7 +216,7 @@ void Assembler::generate(const std::string& preFilename) {
         // ETAPA C: Processamento de Diretivas de Memória de Dados
         else if (current == "CONST") {
             idx++;                                                                          // Avança para pegar o valor númerico a frente do CONST
-            int constValue = std::stoi(tokens[idx]);
+            int constValue = std::stoi(tokens[idx], nullptr, 0);
             machineCode.push_back(constValue);
             penCode.push_back(constValue);
             locationCounter++;
