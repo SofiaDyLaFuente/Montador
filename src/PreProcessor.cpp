@@ -262,6 +262,9 @@ void preProcessor(const std::string caminhoArquivo) {
     
     // Escreve o arquivo.pre
     for (int i = 0; i < (int)vetorFinal.size(); ++i) {
-        arquivo_pre << vetorFinal[i] << '\n';
+        arquivo_pre << vetorFinal[i];
+        if (i != (int)vetorFinal.size() - 1) {
+            arquivo_pre << '\n';
+        }
     }
 }
