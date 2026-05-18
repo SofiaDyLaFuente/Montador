@@ -2,8 +2,8 @@
 Repositório para a implementação do Trabalho 1 da disciplina de Software Básico. O projeto consiste na implementação, em C/C++, de um montador para a linguagem assembly fictícia apresentada em aula.
 
 ## Autores
-- João Vitor Pereira Vieira
-- Sofia Dy La Fuente Monteiro
+- João Vitor Pereira Vieira - 211036114
+- Sofia Dy La Fuente Monteiro - 211055530
 
 ## Funcionalidades Implementadas
 - **Pré-processador:** Tratamento de maiúsculas/minúsculas, remoção de comentários, remoção de quebras de linha e espaços redundantes, e tratamento das diretivas `EQU` e `IF`.
