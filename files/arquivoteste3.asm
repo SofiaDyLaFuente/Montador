@@ -1,0 +1,12 @@
+; comentario com EQU para garantir que não quebra
+FLAG: EQU 1
+TAM: EQU 10
+SECTION TEXT
+IF FLAG
+LOAD TAM
+STOP
+SECTION DATA ; Outro comentário
+DOIS: CONST 2
+OLD_DATA: SPACE
+NEW_DATA: SPACE
+TMP_DATA: SPACE
