@@ -1,21 +1,37 @@
 # Montador Assembler
 Repositório para a implementação do Trabalho 1 da disciplina de Software Básico. O projeto consiste na implementação, em C/C++, de um montador para a linguagem assembly fictícia apresentada em aula.
 
+## Pré Requisitos:
+- Compilador g++ com suporte a C++11
 
-## Pré-processamento
+## Compilação
 
-Para compilar o pré-processador, utilize o seguinte comando no terminal (dentro da pasta raiz do projeto):
-
-```bash
-g++ -std=c++11 -Iinclude src/PreProcessor.cpp src/main.cpp -o montador
-```
-
-Para executar o pré-processador sobre um arquivo fonte (.asm), use:
+Para compilar o projeto, utilize o seguinte comando no terminal (dentro da pasta raiz do projeto):
 
 ```bash
-./montador nomedoarquivo.asm
+g++ -std=c++11 -Iinclude src/PreProcessor.cpp src/Assembler.cpp src/Simulator.cpp src/main.cpp -o montador
 ```
 
-Observações:
-- O arquivo de entrada deve estar na pasta `files/` (ex.: `files/nomedoarquivo.asm`).
-- O pré-processador gera um arquivo de saída com o mesmo nome e extensão `.pre` na mesma pasta `files/`.
+## Execução do programa
+
+### Pré-processamento
+
+```bash
+./montador arquivo.asm
+```
+
+### Montagem 
+
+```bash
+./montador arquivo.pre
+```
+
+### Simulação
+
+```bash
+./montador arquivo.obj
+```
+
+## Observações
+- Arquivos de entrada: todos os arquivos (`.asm`, `.pre`, `.obj`) devem estar na pasta `files/`.
+- Arquivos de saída: Todos os aquivos de saída são gerados na mesma pasta `files/`.
