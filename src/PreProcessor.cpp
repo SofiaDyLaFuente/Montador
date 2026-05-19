@@ -194,12 +194,16 @@ void preProcessor(const std::string caminhoArquivo) {
     int i = 0;
     int total = (int)novoVetor.size();
     for (i = 0; i < total; ++i) {
-        std::string linha = removerComentario(vetorLinha[i]);
+        std::string linha = removerComentario(novoVetor[i]);
         
         if (linha.empty()) {
             continue;
         }
 
+        if (linha.find("SECTION TEXT") != std::string::npos) {
+            continue;
+        }
+    
         if (linha.find(" EQU ") == std::string::npos) {
             break;
         }
@@ -246,6 +250,7 @@ void preProcessor(const std::string caminhoArquivo) {
                 vetorFinal.insert(vetorFinal.end(), vetorLinha[i+1]);
             }
 
+            zero = true;
             i = i + 1;
             continue;
         }
