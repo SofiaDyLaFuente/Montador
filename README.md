@@ -10,8 +10,16 @@ Repositório para a implementação do Trabalho 1 da disciplina de Software Bás
 - **Montador (Single-Pass):** Algoritmo de passagem única com resolução de referências futuras via **Backpatching**. Suporte a rotulos na mesma linha ou linha isolada, e leitura de valores inteiros, negativos e hexadecimais (ex: `0x14`).
 - **Simulador:** Máquina virtual completa para execução do código objeto gerado, com suporte a entrada (`INPUT`) e saída (`OUTPUT`) interativas pelo terminal.
 
-## Pré Requisitos:
-- Compilador g++ com suporte a C++11
+## Ambiente e Pré-requisitos
+O projeto foi desenvolvido e homologado em ambiente **Linux (Ubuntu / WSL)**. Recomenda-se a execução neste sistema operacional para garantir o correto funcionamento da manipulação de caminhos de arquivos e quebras de linha.
+
+- Compilador `g++` com suporte ao padrão C++11 (ou superior).
+
+**Instalação das dependências (Ubuntu/Debian):**
+```bash
+sudo apt update
+sudo apt install g++
+```
 
 ## Compilação
 
