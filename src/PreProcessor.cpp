@@ -174,8 +174,8 @@ void preProcessor(const std::string caminhoArquivo) {
 
     // Se COPY, junta os dois operandos separados por vírgula sem espaço
     for (int i = 0; i < (int)novoVetor.size(); i++) {
-        if (novoVetor[i].find("COPY") == 0) {
-            std::string operandos = novoVetor[i].substr(5);
+        if (novoVetor[i].find(" COPY ") != std::string::npos) {
+            std::string operandos = novoVetor[i].substr(novoVetor[i].find(" COPY ") + 5);
             std::string operandosNormalizado;
             
             for (int j = 0; j < (int)operandos.size(); ++j) {
@@ -186,7 +186,7 @@ void preProcessor(const std::string caminhoArquivo) {
                 }
             }
             
-            novoVetor[i] = "COPY " + operandosNormalizado;
+            novoVetor[i] = novoVetor[i].substr(0, novoVetor[i].find(" COPY ")) + " COPY " + operandosNormalizado;
         }
     }
 
@@ -200,10 +200,6 @@ void preProcessor(const std::string caminhoArquivo) {
             continue;
         }
 
-        if (linha.find("SECTION TEXT") != std::string::npos) {
-            continue;
-        }
-    
         if (linha.find(" EQU ") == std::string::npos) {
             break;
         }
