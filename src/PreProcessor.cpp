@@ -124,42 +124,6 @@ void preProcessor(const std::string caminhoArquivo) {
         vetorLinha.insert(vetorLinha.end(), linhaNormalizada);
     }
 
-    // Se Section Data vier antes de Section Text: inverte
-    for (int i = 0; i < (int)vetorLinha.size(); ++ i) {
-        if (contador == 0 && vetorLinha[i] == "SECTION TEXT"){
-            ordenado = true;
-            break;
-        }
-        
-        else if (vetorLinha[i] == "SECTION TEXT") {
-            texto = true;
-            dados = false;
-            sectionText.insert(sectionText.end(), vetorLinha[i]);
-            continue;
-        }
-        else if (vetorLinha[i] == "SECTION DATA") {
-            texto = false;
-            dados = true;
-            sectionData.insert(sectionData.end(), vetorLinha[i]);
-            continue;
-        }
-
-        if (texto == true) {
-            sectionText.insert(sectionText.end(), vetorLinha[i]);
-        } 
-        else if (dados == true) {
-            sectionData.insert(sectionData.end(), vetorLinha[i]);
-        }
-        
-        contador = contador + 1;
-    }
-
-    if (ordenado == false){
-        vetorLinha.clear();
-        vetorLinha.insert(vetorLinha.end(), sectionText.begin(), sectionText.end());
-        vetorLinha.insert(vetorLinha.end(), sectionData.begin(), sectionData.end());
-    }
-
     // Se a label for seguida de ENTER: junta na mesma linha
     for (int i = 0; i < (int)vetorLinha.size(); ++i) {
         if (vetorLinha[i].back() == ':') {
@@ -252,6 +216,42 @@ void preProcessor(const std::string caminhoArquivo) {
         }
         
         vetorFinal.insert(vetorFinal.end(), vetorLinha[i]);
+    }
+
+     // Se Section Data vier antes de Section Text: inverte
+    for (int i = 0; i < (int)vetorFinal.size(); ++ i) {
+        if (contador == 0 && vetorFinal[i] == "SECTION TEXT"){
+            ordenado = true;
+            break;
+        }
+        
+        else if (vetorFinal[i] == "SECTION TEXT") {
+            texto = true;
+            dados = false;
+            sectionText.insert(sectionText.end(), vetorFinal[i]);
+            continue;
+        }
+        else if (vetorFinal[i] == "SECTION DATA") {
+            texto = false;
+            dados = true;
+            sectionData.insert(sectionData.end(), vetorFinal[i]);
+            continue;
+        }
+
+        if (texto == true) {
+            sectionText.insert(sectionText.end(), vetorFinal[i]);
+        } 
+        else if (dados == true) {
+            sectionData.insert(sectionData.end(), vetorFinal[i]);
+        }
+        
+        contador = contador + 1;
+    }
+
+    if (ordenado == false){
+        vetorFinal.clear();
+        vetorFinal.insert(vetorFinal.end(), sectionText.begin(), sectionText.end());
+        vetorFinal.insert(vetorFinal.end(), sectionData.begin(), sectionData.end());
     }
    
     // Associa um objeto ao arquivo.pre
