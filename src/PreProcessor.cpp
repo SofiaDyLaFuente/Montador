@@ -168,8 +168,8 @@ void preProcessor(const std::string caminhoArquivo) {
             break;
         }
         
-        std::string rotulo = linha.substr(0, novoVetor[i].find(" EQU "));
-        std::string valor = linha.substr(novoVetor[i].find(" EQU ") + 5);
+        std::string rotulo = linha.substr(0, linha.find(" EQU "));
+        std::string valor = linha.substr(linha.find(" EQU ") + 5);
 
         
         if (!rotulo.empty() && rotulo.back() == ':') {
